@@ -1,8 +1,9 @@
 ﻿Android Advanced
-Exercise
-
-Android Advanced
 APP-WEB-DEVELOPMENT
+
+Exercise specifiations - yet to be implemented
+
+
 
 
 
