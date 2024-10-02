@@ -7,4 +7,3 @@ class Wordpair(
     var germanWord: String,
     var level: Int
 ) : Serializable {}
-
