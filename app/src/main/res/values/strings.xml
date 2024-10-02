@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">flashcards_advanced</string>
+    <string name="title">FLASHCARDS</string>
+    <string name="subTitle">Deutsch-Englische Vokabel spielend einfach lernen!</string>
+    <string name="eingabe_deutsches_vokabel">Eingabe Deutsches Vokabel</string>
+    <string name="eingabe_englisches_vokabel">Eingabe Englisches Vokabel</string>
+    <string name="speichern">Speichern</string>
+    <string name="ready">READY?</string>
+    <string name="vokabelquiz_starten">Vokabelquiz starten</string>
+    <string name="w_rterbuch_bearbeiten">Wörterbuch bearbeiten</string>
+    <string name="bearbeiten">bearbeiten</string>
+    <string name="w_rterbuch_l_schen">Wörterbuch löschen</string>
+    <string name="flash_quiz">Flash-Quiz</string>
+    <string name="so_funktioniert_s">So funktioniert\'s</string>
+    <string name="w_hle_zuerst_in_welche_richtung_du_dich_testen_m_chtest_deutsch_zu_englisch_oder_englisch_zu_deutsch_wenn_du_denkst_die_l_sung_zu_kennen_dr_cke_auf_quot_kontrollieren_quot_hattest_du_recht_dann_klicke_auf_den_haken_hast_du_falsch_gelegen_dann_klicke_auf_das_x_versuche_ein_wort_mindestens_3x_richtig_zu_erkennen">Wähle zuerst in welche Richtung du dich testen möchtest (Deutsch zu Englisch oder Englisch zu Deutsch) Wenn du denkst, die Lösung zu kennen, drücke auf \"kontrollieren\". Hattest du Recht? Dann klicke auf den Haken. Hast du falsch gelegen? Dann klicke auf das X. Versuche ein Wort mindestens 3x richtig zu erkennen!</string>
+    <string name="quiz_n_chstes_wort">Quiz: nächstes Wort</string>
+    <string name="kontrollieren">kontrollieren</string>
+    <string name="x">X</string>
+    <string name="zur_ck_zur_startseite">Zurück zur Startseite</string>
+    <string name="testquizview">TestQuizView</string>
+    <string name="zur_ck">zurück (nicht funktional)</string>
+    <string name="bearbeiten_nicht_funktional">bearbeiten (nicht funktional)</string>
+    <string name="deutsches_wort">Deutsches Wort:</string>
+    <string name="platzhalter_keine_funktion_hinterlegt">Platzhalter (keine Funktion hinterlegt)</string>
+    <string name="englisches_wort">Englisches Wort:</string>
+    <string name="platzhalter_keine_funktion_hinterlegt_2">Platzhalter (keine Funktion hinterlegt)</string>
+    <string name="bearbeiten_nicht_fuktional">bearbeiten (nicht fuktional)</string>
+    <string name="l_schen_nicht_funktional">löschen (nicht funktional)</string>
+    <string name="input_field_for_german_word">input field for german word</string>
+    <string name="input_field_for_english_word">input field for english word</string>
+
+    <string name="contact_detail">Contact Detail</string>
+    <string name="save">Save</string>
+    <string name="hint_age">Contact Age</string>
+    <string name="hint_number">Contact Telephone Number</string>
+    <string name="hint_name">Contact Name</string>
 </resources>
