@@ -1,6 +1,7 @@
 package fh.lpa.flashcards_advanced
 
 import android.app.Application
+import fh.lpa.flashcards_advanced.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -12,7 +13,7 @@ class FlashcardApplication: Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@FlashcardApplication)
-            //modules(appModule)
+            modules(appModule)
         }
     }
 }
