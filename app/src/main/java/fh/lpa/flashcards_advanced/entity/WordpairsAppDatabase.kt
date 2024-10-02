@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
     version = 1
 )
 
-abstract class WordpairAppDatabase : RoomDatabase() {
+abstract class WordpairsAppDatabase : RoomDatabase() {
 
     abstract fun wordpairDAO(): WordpairDAO
 }
