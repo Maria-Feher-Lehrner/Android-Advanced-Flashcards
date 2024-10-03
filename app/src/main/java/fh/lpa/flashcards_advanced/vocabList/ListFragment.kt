@@ -1,6 +1,7 @@
 package fh.lpa.flashcards_advanced.vocabList
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -30,6 +31,8 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         _refresher = view.findViewById(R.id.swRefresher)
         _searchView = view.findViewById(R.id.svWords)
 
+        Log.i("LIST FRAGMENT","List Fragment was created")
+
         setupList()
         _listViewModel.getWordpairFilteredBySearchTerm().observe(viewLifecycleOwner) {
             lifecycleScope.launch(Dispatchers.IO) {
@@ -39,8 +42,10 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                 }
             }
         }
+        Log.i("LIST FRAGMENT","setupList() was executed")
 
         setupSearch()
+        Log.i("LIST FRAGMENT","setupSearch() was executed")
 
     }
 

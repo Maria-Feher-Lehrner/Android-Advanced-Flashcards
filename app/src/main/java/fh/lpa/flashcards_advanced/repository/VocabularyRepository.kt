@@ -7,7 +7,7 @@ import io.ktor.client.HttpClient
 
 class VocabularyRepository (
     wordpairsAppDatabase: WordpairsAppDatabase,
-    private val _httpClient: HttpClient
+    //private val _httpClient: HttpClient
 ) {
     private val _wordpairDAO = wordpairsAppDatabase.wordpairDAO()
 

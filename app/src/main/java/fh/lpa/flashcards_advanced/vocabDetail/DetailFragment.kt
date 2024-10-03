@@ -1,6 +1,7 @@
 package fh.lpa.flashcards_advanced.vocabDetail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.core.widget.doAfterTextChanged
@@ -15,6 +16,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.i("DETAIL FRAGMENT","was created")
 
         val wordpair = _detailViewModel.read()
         val etFrenchWord = view.findViewById<TextInputEditText>(R.id.etFrenchWord)
