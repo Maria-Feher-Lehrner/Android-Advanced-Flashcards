@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             val wordpairDao = _wordpairsAppDatabase.wordpairDAO()
-            //val wordpairEntityList = wordpairDao.readAll()
+            val wordpairEntityList = wordpairDao.readAll()
         }
     }
 }

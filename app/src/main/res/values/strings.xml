@@ -29,9 +29,9 @@
     <string name="input_field_for_german_word">input field for german word</string>
     <string name="input_field_for_english_word">input field for english word</string>
 
-    <string name="contact_detail">Contact Detail</string>
+    <string name="wordpair_detail">Vocabulary Detail</string>
     <string name="save">Save</string>
     <string name="hint_age">Contact Age</string>
-    <string name="hint_number">Contact Telephone Number</string>
-    <string name="hint_name">Contact Name</string>
+    <string name="hint_GermanWord">German Term</string>
+    <string name="hint_FrenchWord">French Term</string>
 </resources>

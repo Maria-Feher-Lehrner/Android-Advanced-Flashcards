@@ -11,7 +11,7 @@
         android:label="DetailFragment">
         <argument
             android:name="contact"
-            app:argType="at.fh.anda_contacts.Contact" />
+            app:argType="fh.lpa.flashcards_advanced.Wordpair" />
     </fragment>
     <fragment
         android:id="@+id/overviewFragment"

@@ -22,30 +22,29 @@
             style="@style/BigColoredText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contact_detail" />
+            android:text="@string/wordpair_detail" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:hint="@string/hint_FrenchWord"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_name">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etContactName"
+                android:id="@+id/etFrenchWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:hint="@string/hint_GermanWord"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_number">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etContactTelephoneNumber"
+                android:id="@+id/etGermanWord"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone" />
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +54,7 @@
             android:hint="@string/hint_age">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etContactAge"
+                android:id="@+id/etLearningLevel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
