@@ -28,11 +28,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        lifecycleScope.launch(Dispatchers.IO) {
+        _vocabularyRepository.readAll().observe(this) { wordpairEntityList ->
+            // Check if the list is empty and import CSV if needed
+            if (wordpairEntityList.isNullOrEmpty()) {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    _vocabularyRepository.importCSVToDatabase(this@MainActivity, _wordpairsAppDatabase)
+                }
+            }
+
+            // Log information
+            Log.i("MAIN", "Database setup and import (if needed) completed")
+        }
+
+        /*lifecycleScope.launch(Dispatchers.IO) {
             //val wordpairDao = _wordpairsAppDatabase.wordpairDAO()
             //val wordpairEntityList = wordpairDao.readAll().value
-            val wordpairEntityList = _vocabularyRepository.readAll().value
-            if (wordpairEntityList == null || wordpairEntityList.isEmpty()) {
+            val wordpairEntityList = _vocabularyRepository.readAll()
+            if (wordpairEntityList.value.isNullOrEmpty()) {
                 // Import the CSV data if the database is empty
                 //importCSVToDatabase(this@MainActivity, _wordpairsAppDatabase)
                 _vocabularyRepository.importCSVToDatabase(this@MainActivity, _wordpairsAppDatabase)
@@ -40,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
             // Log information
             Log.i("MAIN", "Database setup and import (if needed) completed")
-        }
+        }*/
 
         Log.i("MAIN","MainActivity was created")
     }

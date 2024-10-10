@@ -11,7 +11,9 @@ import fh.lpa.flashcards_advanced.Wordpair
 
 class WordPairViewHolder(val listItemWordpairRootView: View) :
     RecyclerView.ViewHolder(listItemWordpairRootView) {
-    val wordPairWordTextView: TextView = listItemWordpairRootView.findViewById(R.id.tvListItemWord)
+    val frenchWordTextView: TextView = listItemWordpairRootView.findViewById(R.id.tvListItemFrenchWord)
+    val germanWordTextView: TextView = listItemWordpairRootView.findViewById(R.id.tvListItemGermanWord)
+
 }
 
 class WordpairsAdapter(var wordpairs: List<Wordpair>) : RecyclerView.Adapter<WordPairViewHolder>() {
@@ -25,7 +27,8 @@ class WordpairsAdapter(var wordpairs: List<Wordpair>) : RecyclerView.Adapter<Wor
 
     override fun onBindViewHolder(holder: WordPairViewHolder, position: Int) {
         val wordpair = wordpairs[position]
-        holder.wordPairWordTextView.text = wordpair.frenchWord
+        holder.frenchWordTextView.text = wordpair.frenchWord
+        holder.germanWordTextView.text = wordpair.germanWord
         holder.listItemWordpairRootView.setOnClickListener {
             val navHostFragment = holder.listItemWordpairRootView.findNavController()
             navHostFragment.navigate(
