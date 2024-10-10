@@ -64,4 +64,6 @@ dependencies {
     implementation(libs.io.ktor.serialization.kotlinx.json)
 
     implementation(libs.io.insert.koin.android)
+
+    implementation(libs.opencsv)
 }

@@ -9,6 +9,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
+opencsv = "5.9"
 
 #Added versions for current project:
 room = "2.6.1"
@@ -40,6 +41,7 @@ io-ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref =
 io-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor"}
 io-ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor"}
 io-insert-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"}
+opencsv = { group = "com.opencsv", name = "opencsv", version.ref = "opencsv"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

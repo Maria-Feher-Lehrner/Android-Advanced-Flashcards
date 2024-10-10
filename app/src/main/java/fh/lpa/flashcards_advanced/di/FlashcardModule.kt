@@ -24,7 +24,7 @@ val appModule = module {
 
     single<WordpairsAppDatabase> {
         val database = Room.databaseBuilder(
-            androidContext(),
+            get(),
             WordpairsAppDatabase::class.java,
             "FlashcardDB"
         ).fallbackToDestructiveMigration()
