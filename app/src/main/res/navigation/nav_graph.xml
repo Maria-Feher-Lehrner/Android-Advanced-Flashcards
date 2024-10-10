@@ -5,6 +5,15 @@
     android:id="@+id/navigation_main"
     app:startDestination="@id/overviewFragment">
 
+    <!--fragment
+        android:id="@+id/startFragment"
+        android:name="fh.lpa.flashcards_advanced.start.StartFragment"
+        android:label="StartFragment">
+        <action
+            android:id="@+id/action_overviewFragment_to_detailFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment-->
+
     <fragment
         android:id="@+id/overviewFragment"
         android:name="fh.lpa.flashcards_advanced.vocabList.ListFragment"
@@ -19,7 +28,7 @@
         android:name="fh.lpa.flashcards_advanced.vocabDetail.DetailFragment"
         android:label="DetailFragment">
         <argument
-            android:name="contact"
+            android:name="wordpair"
             app:argType="fh.lpa.flashcards_advanced.Wordpair" />
     </fragment>
 

@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">flashcards_advanced</string>
     <string name="title">FLASHCARDS</string>
-    <string name="subTitle">Deutsch-Englische Vokabel spielend einfach lernen!</string>
+    <string name="subTitle">Deutsch-Französische Vokabel spielend einfach lernen!</string>
     <string name="eingabe_deutsches_vokabel">Eingabe Deutsches Vokabel</string>
-    <string name="eingabe_englisches_vokabel">Eingabe Englisches Vokabel</string>
+    <string name="eingabe_französisches_vokabel">Eingabe Französisches Vokabel</string>
     <string name="speichern">Speichern</string>
     <string name="ready">READY?</string>
     <string name="vokabelquiz_starten">Vokabelquiz starten</string>
@@ -22,16 +22,16 @@
     <string name="bearbeiten_nicht_funktional">bearbeiten (nicht funktional)</string>
     <string name="deutsches_wort">Deutsches Wort:</string>
     <string name="platzhalter_keine_funktion_hinterlegt">Platzhalter (keine Funktion hinterlegt)</string>
-    <string name="englisches_wort">Englisches Wort:</string>
+    <string name="französisches_wort">Französisches Wort:</string>
     <string name="platzhalter_keine_funktion_hinterlegt_2">Platzhalter (keine Funktion hinterlegt)</string>
     <string name="bearbeiten_nicht_fuktional">bearbeiten (nicht fuktional)</string>
     <string name="l_schen_nicht_funktional">löschen (nicht funktional)</string>
     <string name="input_field_for_german_word">input field for german word</string>
-    <string name="input_field_for_english_word">input field for english word</string>
+    <string name="input_field_for_french_word">input field for french word</string>
 
     <string name="wordpair_detail">Vocabulary Detail</string>
     <string name="save">Save</string>
-    <string name="hint_age">Contact Age</string>
+    <string name="hint_level">Learning Level</string>
     <string name="hint_GermanWord">German Term</string>
     <string name="hint_FrenchWord">French Term</string>
 </resources>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyBlue"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_Title"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textColor="@color/darkBlue"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_intro"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/subTitle"
+            android:textAlignment="center"
+            android:textColor="@color/darkBlue"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/iv_decoration"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/greyBlue"
+            app:layout_constraintBottom_toTopOf="@+id/tv_input_GER"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ask_2110967"
+            tools:srcCompat="@drawable/ask_2110967" />
+
+        <TextView
+            android:id="@+id/tv_input_GER"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/darkBlue"
+            android:text="@string/eingabe_deutsches_vokabel"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/eT_language1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/input_field_for_german_word"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tv_input_FRA"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/darkBlue"
+            android:text="@string/eingabe_französisches_vokabel"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/eT_language2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/input_field_for_french_word"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/white"
+            android:text="@string/speichern" />
+
+        <Button
+            android:id="@+id/btn_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:backgroundTint="@color/teal"
+            android:textColor="@color/white"
+            android:text="@string/vokabelquiz_starten" />
+
+        <TextView
+            android:id="@+id/tv_title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/w_rterbuch_bearbeiten"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btn_edit"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/yellow"
+                android:textColor="@color/darkBlue"
+                android:text="@string/bearbeiten" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/red"
+                android:textColor="@color/white"
+                android:text="@string/w_rterbuch_l_schen" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:baselineAlignBottom="true"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        app:tint="@color/teal" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
