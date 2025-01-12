@@ -39,8 +39,7 @@
         android:id="@+id/QuizFragment"
         android:name="fh.lpa.flashcards_advanced.quiz.QuizFragment"
         android:label="QuizFragment">
-        <action
-             />
+
     </fragment>
 
 </navigation>
