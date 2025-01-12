@@ -32,8 +32,12 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         val quizButton = view.findViewById<Button>(R.id.btn_quiz)
         val editButton = view.findViewById<Button>(R.id.btn_edit)
 
-        editButton.setOnClickListener{
+        editButton.setOnClickListener {
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToListViewFragment())
+        }
+
+        quizButton.setOnClickListener {
+            findNavController().navigate(StartFragmentDirections.actionStartFragmentToQuizFragment())
         }
 
     }

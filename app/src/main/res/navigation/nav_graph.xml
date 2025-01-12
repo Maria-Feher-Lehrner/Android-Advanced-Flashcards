@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_startFragment_to_listViewFragment"
             app:destination="@id/listViewFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_quizFragment"
+            app:destination="@id/QuizFragment" />
     </fragment>
 
     <fragment
@@ -30,6 +33,14 @@
         <argument
             android:name="wordpair"
             app:argType="fh.lpa.flashcards_advanced.Wordpair" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/QuizFragment"
+        android:name="fh.lpa.flashcards_advanced.quiz.QuizFragment"
+        android:label="QuizFragment">
+        <action
+             />
     </fragment>
 
 </navigation>
