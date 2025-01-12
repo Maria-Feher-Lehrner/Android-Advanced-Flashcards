@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
-    private val _wordpairsAppDatabase : WordpairsAppDatabase by inject()
-    private val _vocabularyRepository : VocabularyRepository by inject()
+    private val _wordpairsAppDatabase: WordpairsAppDatabase by inject()
+    private val _vocabularyRepository: VocabularyRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,10 @@ class MainActivity : AppCompatActivity() {
             // Check if the list is empty and import CSV if needed
             if (wordpairEntityList.isNullOrEmpty()) {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    _vocabularyRepository.importCSVToDatabase(this@MainActivity, _wordpairsAppDatabase)
+                    _vocabularyRepository.initializeDatabase(
+                        this@MainActivity,
+                        _wordpairsAppDatabase
+                    )
                 }
             }
 
@@ -40,20 +43,16 @@ class MainActivity : AppCompatActivity() {
             Log.i("MAIN", "Database setup and import (if needed) completed")
         }
 
-        /*lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             //val wordpairDao = _wordpairsAppDatabase.wordpairDAO()
             //val wordpairEntityList = wordpairDao.readAll().value
-            val wordpairEntityList = _vocabularyRepository.readAll()
-            if (wordpairEntityList.value.isNullOrEmpty()) {
-                // Import the CSV data if the database is empty
-                //importCSVToDatabase(this@MainActivity, _wordpairsAppDatabase)
-                _vocabularyRepository.importCSVToDatabase(this@MainActivity, _wordpairsAppDatabase)
-            }
+            //val wordpairEntityList = _vocabularyRepository.readAll()
+            _vocabularyRepository.initializeDatabase(this@MainActivity, _wordpairsAppDatabase)
 
             // Log information
             Log.i("MAIN", "Database setup and import (if needed) completed")
-        }*/
+        }
 
-        Log.i("MAIN","MainActivity was created")
+        Log.i("MAIN", "MainActivity was created")
     }
 }

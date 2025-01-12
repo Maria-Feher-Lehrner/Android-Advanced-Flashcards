@@ -10,6 +10,9 @@ import fh.lpa.flashcards_advanced.Wordpair
 
 @Dao
 interface WordpairDAO {
+    @Query("SELECT COUNT(*) FROM wordpairs")
+    suspend fun getWordCount(): Int
+
     @Insert
     suspend fun insertWordpair(wordpair: WordpairEntity)
 

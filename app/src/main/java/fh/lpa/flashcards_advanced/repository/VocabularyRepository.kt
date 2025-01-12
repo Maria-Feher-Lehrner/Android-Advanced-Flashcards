@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData
 import com.opencsv.CSVReader
 import fh.lpa.flashcards_advanced.entity.WordpairEntity
 import fh.lpa.flashcards_advanced.entity.WordpairsAppDatabase
-import io.ktor.client.HttpClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.BufferedReader
 import java.io.InputStreamReader
 
 class VocabularyRepository (
@@ -17,8 +15,16 @@ class VocabularyRepository (
 ) {
     private val _wordpairDAO = wordpairsAppDatabase.wordpairDAO()
 
-    suspend fun importCSVToDatabase(context: Context, database: WordpairsAppDatabase) {
+    suspend fun initializeDatabase(context: Context, database: WordpairsAppDatabase) {
         withContext(Dispatchers.IO) {
+            // Check if the database is empty
+            val wordCount = database.wordpairDAO().getWordCount()
+            if (wordCount > 0) {
+                // Database already has data; skip import
+                return@withContext
+            }
+
+            //refers to an initial CSV file with basic data (initial wordpair list)
             val inputStream = context.assets.open("wordpairs.csv")
             val reader = CSVReader(InputStreamReader(inputStream))
 
@@ -32,7 +38,7 @@ class VocabularyRepository (
                 val germanWord = nextLine!![1]
                 val level = nextLine!![2].toInt()
 
-                // Insert data into the Room database
+                // Insert data into the Room database from initial CSV file
                 val wordpair = WordpairEntity(frenchWord = frenchWord, germanWord = germanWord, level = level)
                 database.wordpairDAO().insertWordpair(wordpair)
             }
