@@ -53,7 +53,7 @@ class VocabularyRepository (
         return _wordpairDAO.searchWords("%$searchTerm%")
     }
 
-    suspend fun addWordPair(){
+    suspend fun addWordPair(wordPair: WordpairEntity){
         //TODO: implement code
     }
 }
