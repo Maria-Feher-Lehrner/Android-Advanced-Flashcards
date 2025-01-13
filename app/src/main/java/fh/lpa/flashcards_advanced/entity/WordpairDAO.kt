@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import fh.lpa.flashcards_advanced.Wordpair
@@ -13,7 +14,7 @@ interface WordpairDAO {
     @Query("SELECT COUNT(*) FROM wordpairs")
     suspend fun getWordCount(): Int
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertWordpair(wordpair: WordpairEntity)
 
     @Update

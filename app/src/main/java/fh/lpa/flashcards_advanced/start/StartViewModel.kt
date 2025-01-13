@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import fh.lpa.flashcards_advanced.entity.WordpairDAO
 import fh.lpa.flashcards_advanced.entity.WordpairEntity
 import fh.lpa.flashcards_advanced.repository.VocabularyRepository
 import kotlinx.coroutines.Dispatchers

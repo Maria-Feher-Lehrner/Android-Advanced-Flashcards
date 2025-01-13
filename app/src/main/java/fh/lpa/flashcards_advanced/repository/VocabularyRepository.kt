@@ -54,6 +54,6 @@ class VocabularyRepository (
     }
 
     suspend fun addWordPair(wordPair: WordpairEntity){
-        //TODO: implement code
+        _wordpairDAO.insertWordpair(wordPair)
     }
 }
