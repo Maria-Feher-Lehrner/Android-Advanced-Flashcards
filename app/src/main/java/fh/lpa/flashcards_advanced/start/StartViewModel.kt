@@ -59,14 +59,18 @@ class StartViewModel(private val _vocabRepository: VocabularyRepository) : ViewM
     }*/
 
     fun saveWordpair() {
+        Log.d("StartViewModel", "saveWordpair() called")
         val german = _germanWord.value ?: ""
         val french = _frenchWord.value ?: ""
 
         if (german.isNotBlank() && french.isNotBlank()) {
+            Log.d("StartViewModel", "Saving wordpair: $german - $french")
             val wordpair = WordpairEntity(germanWord = german, frenchWord = french, level = 0)
             viewModelScope.launch(Dispatchers.IO) {
                 _vocabRepository.addWordPair(wordpair)
             }
-        }
+        } else {
+        Log.d("StartViewModel", "German or French word is blank. Skipping save.")
+    }
     }
 }
