@@ -41,6 +41,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         val saveButton = view.findViewById<Button>(R.id.btn_save)
         val quizButton = view.findViewById<Button>(R.id.btn_quiz)
         val editButton = view.findViewById<Button>(R.id.btn_edit)
+        val deleteButton = view.findViewById<Button>(R.id.btn_delete)
 
         // Observing LiveData and updating EditText
         /*startViewModel.germanWord.observe(viewLifecycleOwner, { german ->
@@ -66,13 +67,16 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         quizButton.setOnClickListener {
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToQuizFragment())
         }
-        saveButton.setOnClickListener{
+        saveButton.setOnClickListener {
             Log.d("StartFragment", "Save button clicked!")
             startViewModel.saveWordpair()
             _inputGer.setText("")
             _inputFra.setText("")
         }
+        deleteButton.setOnClickListener {
+            Log.d("StartFragment", "Delete button clicked!")
+            startViewModel.deleteAllVocabulary()
+        }
 
     }
-
 }

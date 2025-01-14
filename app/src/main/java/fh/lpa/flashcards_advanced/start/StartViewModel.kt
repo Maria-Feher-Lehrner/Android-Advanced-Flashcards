@@ -70,7 +70,18 @@ class StartViewModel(private val _vocabRepository: VocabularyRepository) : ViewM
                 _vocabRepository.addWordPair(wordpair)
             }
         } else {
-        Log.d("StartViewModel", "German or French word is blank. Skipping save.")
+            Log.d("StartViewModel", "German or French word is blank. Skipping save.")
+        }
     }
+
+    fun deleteAllVocabulary() {
+        viewModelScope.launch {
+            try {
+                _vocabRepository.deleteAllWordPairs()
+                Log.d("StartViewModel", "All word pairs deleted successfully")
+            } catch (e: Exception) {
+                Log.e("StartViewModel", "Error deleting word pairs", e)
+            }
+        }
     }
 }

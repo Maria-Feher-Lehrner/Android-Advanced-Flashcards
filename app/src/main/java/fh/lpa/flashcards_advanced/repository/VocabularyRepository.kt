@@ -40,6 +40,8 @@ class VocabularyRepository (
                 val level = nextLine!![2].toInt()
 
                 // Insert data into the Room database from initial CSV file
+                // This initial wordpair data will alway be present - even after calling the deleteAllWordPairs() function
+                // because the data gets instantly replaced.
                 val wordpair = WordpairEntity(frenchWord = frenchWord, germanWord = germanWord, level = level)
                 database.wordpairDAO().insertWordpair(wordpair)
             }
@@ -48,6 +50,10 @@ class VocabularyRepository (
 
     fun readAll(): LiveData<List<WordpairEntity>>{
         return _wordpairDAO.readAll()
+    }
+
+    suspend fun deleteAllWordPairs(){
+        _wordpairDAO.deleteAll()
     }
 
     suspend fun searchBy(searchTerm: String): List<WordpairEntity> {

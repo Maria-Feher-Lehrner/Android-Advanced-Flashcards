@@ -3,6 +3,7 @@ package fh.lpa.flashcards_advanced.entity
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.DeleteColumn
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -22,6 +23,9 @@ interface WordpairDAO {
 
     @Delete
     fun deleteWordpair(wordpair: WordpairEntity)
+
+    @Query("DELETE FROM wordpairs")
+    suspend fun deleteAll()
 
     @Query("SELECT * FROM wordpairs ORDER BY frenchWord")
     fun readAll(): LiveData<List<WordpairEntity>>
