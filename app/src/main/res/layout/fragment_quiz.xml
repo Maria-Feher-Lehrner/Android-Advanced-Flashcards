@@ -55,8 +55,8 @@
             android:backgroundTint="@color/darkBlue"
             android:textColor="@color/white"
             android:text="ToggleButton"
-            android:textOff="EN>DE"
-            android:textOn="DE>EN" />
+            android:textOff="@string/fr_de"
+            android:textOn="@string/de_fr" />
 
         <Button
             android:id="@+id/btn_quiz_next"
@@ -86,34 +86,42 @@
             android:backgroundTint="@color/yellow"
             android:textColor="@color/darkBlue"
             android:layout_marginStart="80dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginEnd="80dp"
             android:text="@string/kontrollieren" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="72dp"
+            android:layout_marginBottom="70dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/btn_checkPositive"
-                android:layout_width="40dp"
+                android:layout_width="0dp"
+                android:layout_weight="0.15"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="4dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
                 android:backgroundTint="@color/green"
+                android:background="@drawable/rounded_button"
                 app:srcCompat="@android:drawable/checkbox_on_background" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.025" />
 
             <Button
                 android:id="@+id/btn_checkNegative"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="60dp"
-                android:layout_weight="1"
+                android:layout_weight="0.15"
                 android:backgroundTint="@color/red"
                 android:text="@string/x"
                 android:textColor="@color/white"

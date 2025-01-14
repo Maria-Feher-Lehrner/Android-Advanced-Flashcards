@@ -37,4 +37,6 @@
     <string name="das_beispiel">das Beispiel</string>
     <string name="le_exemple">le exemple</string>
     <string name="zurueck">Zurück</string>
+    <string name="fr_de"><![CDATA[FR>DE]]></string>
+    <string name="de_fr"><![CDATA[DE>FR]]></string>
 </resources>
