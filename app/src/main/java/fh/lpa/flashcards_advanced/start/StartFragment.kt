@@ -1,6 +1,7 @@
 package fh.lpa.flashcards_advanced.start
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,10 +33,23 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         _inputGer = view.findViewById(R.id.eT_language1)
         _inputFra = view.findViewById(R.id.eT_language2)
 
+        // Hints for the EditTexts
+        _inputGer.hint = "das Beispiel"
+        _inputFra.hint = "le exemple"
+
         //Variables buttons
         val saveButton = view.findViewById<Button>(R.id.btn_save)
         val quizButton = view.findViewById<Button>(R.id.btn_quiz)
         val editButton = view.findViewById<Button>(R.id.btn_edit)
+
+        // Observing LiveData and updating EditText
+        /*startViewModel.germanWord.observe(viewLifecycleOwner, { german ->
+            _inputGer.setText(german)
+        })
+
+        startViewModel.frenchWord.observe(viewLifecycleOwner, { french ->
+            _inputFra.setText(french)
+        })*/
 
         //Text-change listener for editTexts
         _inputGer.addTextChangedListener { text ->
@@ -53,6 +67,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToQuizFragment())
         }
         saveButton.setOnClickListener{
+            Log.d("StartFragment", "Save button clicked!")
             startViewModel.saveWordpair()
         }
 

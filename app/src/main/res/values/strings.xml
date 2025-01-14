@@ -34,4 +34,6 @@
     <string name="hint_level">Learning Level</string>
     <string name="hint_GermanWord">German Term</string>
     <string name="hint_FrenchWord">French Term</string>
+    <string name="das_beispiel">das Beispiel</string>
+    <string name="le_exemple">le exemple</string>
 </resources>

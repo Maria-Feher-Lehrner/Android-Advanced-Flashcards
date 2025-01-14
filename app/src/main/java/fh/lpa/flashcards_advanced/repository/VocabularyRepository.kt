@@ -1,6 +1,7 @@
 package fh.lpa.flashcards_advanced.repository
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.opencsv.CSVReader
 import fh.lpa.flashcards_advanced.entity.WordpairEntity
@@ -54,6 +55,12 @@ class VocabularyRepository (
     }
 
     suspend fun addWordPair(wordPair: WordpairEntity){
-        _wordpairDAO.insertWordpair(wordPair)
+        Log.d("VocabularyRepository", "addWordpair() called")
+        try {
+            _wordpairDAO.insertWordpair(wordPair)
+        } catch (e: Exception) {
+            Log.e("VocabularyRepository", "Error inserting wordpair", e)
+            throw e
+        }
     }
 }
