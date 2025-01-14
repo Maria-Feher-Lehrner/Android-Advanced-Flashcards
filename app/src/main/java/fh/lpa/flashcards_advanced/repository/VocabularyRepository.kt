@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.opencsv.CSVReader
+import fh.lpa.flashcards_advanced.Wordpair
 import fh.lpa.flashcards_advanced.entity.WordpairEntity
 import fh.lpa.flashcards_advanced.entity.WordpairsAppDatabase
 import kotlinx.coroutines.Dispatchers
@@ -68,5 +69,30 @@ class VocabularyRepository (
             Log.e("VocabularyRepository", "Error inserting wordpair", e)
             throw e
         }
+    }
+
+    suspend fun updateWordPair(updatedWordpair: WordpairEntity) {
+        Log.d("VocabularyRepository", "updateWordPair() was called")
+        Log.d("VocabularyRepository", "Updating wordpair: ${updatedWordpair.toString()}")
+
+        _wordpairDAO.updateWordpair(updatedWordpair)
+    }
+
+    fun mapEntityToWordpair(entity: WordpairEntity): Wordpair {
+        return Wordpair(
+            id = entity.id,
+            frenchWord = entity.frenchWord,
+            germanWord = entity.germanWord,
+            level = entity.level
+        )
+    }
+
+    fun mapWordpairToEntity(wordpair: Wordpair): WordpairEntity {
+        return WordpairEntity(
+            id = wordpair.id,
+            frenchWord = wordpair.frenchWord,
+            germanWord = wordpair.germanWord,
+            level = wordpair.level
+        )
     }
 }

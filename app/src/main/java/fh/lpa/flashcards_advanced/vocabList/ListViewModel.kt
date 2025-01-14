@@ -3,7 +3,9 @@ package fh.lpa.flashcards_advanced.vocabList
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import fh.lpa.flashcards_advanced.Wordpair
 import fh.lpa.flashcards_advanced.repository.VocabularyRepository
@@ -28,27 +30,36 @@ class ListViewModel(private val _vocabRepository: VocabularyRepository) : ViewMo
 
     fun getWordpairs(): LiveData<List<Wordpair>> {
         return _vocabRepository.readAll().map { entityList ->
-            entityList.map { entity ->
+            entityList.map { _vocabRepository.mapEntityToWordpair(it) /*entity ->
                 Wordpair(
                     frenchWord = entity.frenchWord,
                     germanWord = entity.germanWord,
                     level = entity.level
-                )
+                )*/
             }
         }
     }
 
-    fun getWordpairFilteredBySearchTerm() : LiveData<Deferred<List<Wordpair>>> {
+    /*fun getWordpairFilteredBySearchTerm() : LiveData<Deferred<List<Wordpair>>> {
         return _searchTerm.map { searchTerm ->
             viewModelScope.async(Dispatchers.IO) {
                 val filteredVocabulary = _vocabRepository.searchBy(searchTerm)
-                filteredVocabulary.map { entity ->
+                filteredVocabulary.map { _vocabRepository.mapEntityToWordpair(it) /*entity ->
                     Wordpair(
                         frenchWord = entity.frenchWord,
                         germanWord = entity.germanWord,
                         level = entity.level
-                    )
+                    )*/
                 }
+            }
+        }
+    }*/
+
+    fun getWordpairFilteredBySearchTerm(): LiveData<List<Wordpair>> {
+        return _searchTerm.switchMap { searchTerm ->
+            liveData(Dispatchers.IO) {
+                val filteredVocabulary = _vocabRepository.searchBy(searchTerm)
+                emit(filteredVocabulary.map { _vocabRepository.mapEntityToWordpair(it) })
             }
         }
     }

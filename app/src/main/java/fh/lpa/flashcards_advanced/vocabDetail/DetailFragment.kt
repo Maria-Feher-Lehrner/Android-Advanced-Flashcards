@@ -14,24 +14,53 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DetailFragment : Fragment(R.layout.fragment_detail) {
     private val _detailViewModel: DetailViewModel by viewModel()
 
+    private lateinit var etFrenchWord: TextInputEditText
+    private lateinit var etGermanWord: TextInputEditText
+    private lateinit var etLearningLevel: TextInputEditText
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.i("DETAIL FRAGMENT","was created")
 
         val wordpair = _detailViewModel.read()
-        val etFrenchWord = view.findViewById<TextInputEditText>(R.id.etFrenchWord)
+        etFrenchWord = view.findViewById<TextInputEditText>(R.id.etFrenchWord)
+        etGermanWord = view.findViewById<TextInputEditText>(R.id.etGermanWord)
+        etLearningLevel = view.findViewById<TextInputEditText>(R.id.etLearningLevel)
+
+        val saveButton = view.findViewById<Button>(R.id.btn_saveDetail)
+        val backButton = view.findViewById<Button>(R.id.btn_backDetail)
+
         etFrenchWord.setText(wordpair.frenchWord)
-        val etGermanWord = view.findViewById<TextInputEditText>(R.id.etGermanWord)
         etGermanWord.setText((wordpair.germanWord))
-        val etLearningLevel = view.findViewById<TextInputEditText>(R.id.etLearningLevel)
         etLearningLevel.setText(wordpair.level.toString())
 
         etFrenchWord.doAfterTextChanged { newTerm ->
 
         }
 
-        val button = view.findViewById<Button>(R.id.button)
-        button.setOnClickListener {
+
+        backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        saveButton.setOnClickListener{
+            Log.d("DetailFragment", "Save Button was clicked")
+            val updatedFrenchWord = etFrenchWord.text.toString()
+            val updatedGermanWord = etGermanWord.text.toString()
+            val updatedLevel = etLearningLevel.text.toString().toIntOrNull() ?: 0
+
+            wordpair.frenchWord = updatedFrenchWord
+            wordpair.germanWord = updatedGermanWord
+            wordpair.level = updatedLevel
+
+            if (wordpair.id != null) {
+                _detailViewModel.updateWordpair(wordpair)
+            } else {
+                Log.e("DetailFragment", "Error: Wordpair id is null, cannot update!")
+            }
+
+            _detailViewModel.updateWordpair(wordpair)
+
             findNavController().popBackStack()
         }
 

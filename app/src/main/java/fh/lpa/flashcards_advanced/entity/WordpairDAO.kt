@@ -19,7 +19,7 @@ interface WordpairDAO {
     suspend fun insertWordpair(wordpair: WordpairEntity)
 
     @Update
-    fun updateWordpair(wordpair: WordpairEntity)
+    suspend fun updateWordpair(wordpair: WordpairEntity)
 
     @Delete
     fun deleteWordpair(wordpair: WordpairEntity)

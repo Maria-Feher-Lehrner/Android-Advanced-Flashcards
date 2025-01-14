@@ -13,4 +13,8 @@ class WordpairEntity(
     var frenchWord: String,
     var germanWord: String,
     var level: Int
-)
+){
+    override fun toString(): String {
+        return "WordpairEntity(id=$id, frenchWord='$frenchWord', germanWord='$germanWord', level=$level)"
+    }
+}

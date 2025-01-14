@@ -34,14 +34,19 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         Log.i("LIST FRAGMENT","List Fragment was created")
 
         setupList()
-        _listViewModel.getWordpairFilteredBySearchTerm().observe(viewLifecycleOwner) {
+        /*_listViewModel.getWordpairFilteredBySearchTerm().observe(viewLifecycleOwner) {
             lifecycleScope.launch(Dispatchers.IO) {
                 val wordpairs = it.await()
                 withContext(Dispatchers.Main) {
                     updateVocabularyAfterChange(wordpairs)
                 }
             }
+        }*/
+
+        _listViewModel.getWordpairFilteredBySearchTerm().observe(viewLifecycleOwner) { wordpairs ->
+            updateVocabularyAfterChange(wordpairs)
         }
+
         Log.i("LIST FRAGMENT","setupList() was executed")
 
         setupSearch()
