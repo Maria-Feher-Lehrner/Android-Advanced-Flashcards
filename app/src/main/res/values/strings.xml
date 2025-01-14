@@ -29,11 +29,12 @@
     <string name="input_field_for_german_word">input field for german word</string>
     <string name="input_field_for_french_word">input field for french word</string>
 
-    <string name="wordpair_detail">Vocabulary Detail</string>
-    <string name="save">Save</string>
-    <string name="hint_level">Learning Level</string>
-    <string name="hint_GermanWord">German Term</string>
-    <string name="hint_FrenchWord">French Term</string>
+    <string name="wordpair_detail">Wörterbucheintrag</string>
+    <string name="save">Speichern</string>
+    <string name="hint_level">Lernstufe</string>
+    <string name="hint_GermanWord">Deutsches Wort</string>
+    <string name="hint_FrenchWord">Französisches Wort</string>
     <string name="das_beispiel">das Beispiel</string>
     <string name="le_exemple">le exemple</string>
+    <string name="zurueck">Zurück</string>
 </resources>
