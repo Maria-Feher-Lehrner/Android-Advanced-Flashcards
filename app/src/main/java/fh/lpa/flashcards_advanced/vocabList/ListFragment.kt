@@ -5,16 +5,12 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import fh.lpa.flashcards_advanced.R
 import fh.lpa.flashcards_advanced.Wordpair
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListFragment : Fragment(R.layout.fragment_list) {
@@ -34,14 +30,6 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         Log.i("LIST FRAGMENT","List Fragment was created")
 
         setupList()
-        /*_listViewModel.getWordpairFilteredBySearchTerm().observe(viewLifecycleOwner) {
-            lifecycleScope.launch(Dispatchers.IO) {
-                val wordpairs = it.await()
-                withContext(Dispatchers.Main) {
-                    updateVocabularyAfterChange(wordpairs)
-                }
-            }
-        }*/
 
         _listViewModel.getWordpairFilteredBySearchTerm().observe(viewLifecycleOwner) { wordpairs ->
             updateVocabularyAfterChange(wordpairs)

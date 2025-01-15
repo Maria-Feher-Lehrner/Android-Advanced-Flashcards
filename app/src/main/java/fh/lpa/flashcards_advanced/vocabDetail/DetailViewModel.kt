@@ -5,7 +5,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fh.lpa.flashcards_advanced.Wordpair
-import fh.lpa.flashcards_advanced.entity.WordpairEntity
 import fh.lpa.flashcards_advanced.repository.VocabularyRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

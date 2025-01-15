@@ -9,9 +9,7 @@ import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import fh.lpa.flashcards_advanced.Wordpair
 import fh.lpa.flashcards_advanced.repository.VocabularyRepository
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class ListViewModel(private val _vocabRepository: VocabularyRepository) : ViewModel() {
@@ -28,7 +26,7 @@ class ListViewModel(private val _vocabRepository: VocabularyRepository) : ViewMo
         }
     }
 
-    fun getWordpairs(): LiveData<List<Wordpair>> {
+    /*fun getWordpairs(): LiveData<List<Wordpair>> {
         return _vocabRepository.readAll().map { entityList ->
             entityList.map { _vocabRepository.mapEntityToWordpair(it) /*entity ->
                 Wordpair(
@@ -36,21 +34,6 @@ class ListViewModel(private val _vocabRepository: VocabularyRepository) : ViewMo
                     germanWord = entity.germanWord,
                     level = entity.level
                 )*/
-            }
-        }
-    }
-
-    /*fun getWordpairFilteredBySearchTerm() : LiveData<Deferred<List<Wordpair>>> {
-        return _searchTerm.map { searchTerm ->
-            viewModelScope.async(Dispatchers.IO) {
-                val filteredVocabulary = _vocabRepository.searchBy(searchTerm)
-                filteredVocabulary.map { _vocabRepository.mapEntityToWordpair(it) /*entity ->
-                    Wordpair(
-                        frenchWord = entity.frenchWord,
-                        germanWord = entity.germanWord,
-                        level = entity.level
-                    )*/
-                }
             }
         }
     }*/
