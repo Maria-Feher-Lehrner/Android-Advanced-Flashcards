@@ -1,10 +1,7 @@
 package fh.lpa.flashcards_advanced.quiz
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Context
 import android.graphics.BitmapFactory
-import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -74,8 +71,6 @@ class QuizViewModel(private val _vocabRepository: VocabularyRepository) : ViewMo
             }
         }
     }
-
-
 
     private fun showScoreNotification(context: Context, word: Wordpair) {
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
