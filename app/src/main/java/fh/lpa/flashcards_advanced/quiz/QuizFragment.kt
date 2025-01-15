@@ -15,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
-    private val quizViewModel: QuizViewModel by viewModel()
+    private val _quizViewModel: QuizViewModel by viewModel()
     private lateinit var _languageToggle: ToggleButton
     private lateinit var _quizWord: TextView
 
@@ -42,9 +42,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         val share = view.findViewById<ImageButton>(R.id.imgbtn_share)
 
         // Observing the current wordPair
-        quizViewModel.currentWordpair.observe(viewLifecycleOwner) { wordpair ->
+        _quizViewModel.currentWordpair.observe(viewLifecycleOwner) { wordpair ->
             if (wordpair != null) {
-                // Display the correct word based on toggle state
+                // Displaying the correct word based on toggle state
                 val wordToDisplay = if (_languageToggle.isChecked) {
                     wordpair.germanWord
                 } else {
@@ -63,22 +63,38 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
 
         nextQuizWord.setOnClickListener{
-            quizViewModel.requestRandomWord()
+            _quizViewModel.requestRandomWord()
+        }
+
+        checkAnswer.setOnClickListener {
+            val currentWordpair = _quizViewModel.currentWordpair.value
+            // Display the correct word based on toggle state
+            if (currentWordpair != null) {
+                // Display the opposite word based on the toggle state
+                val wordToDisplay = if (_languageToggle.isChecked) {
+                    currentWordpair.frenchWord
+                } else {
+                    currentWordpair.germanWord
+                }
+                _quizWord.text = wordToDisplay
+            } else {
+                _quizWord.text = getString(R.string.no_words_available)
+            }
         }
 
         tallyPositive.setOnClickListener {
-            val currentWord = quizViewModel.currentWordpair.value
+            val currentWord = _quizViewModel.currentWordpair.value
             if (currentWord != null) {
                 currentWord.level++
-                quizViewModel.updateLearningLevel(currentWord)
+                _quizViewModel.updateLearningLevel(currentWord)
             }
         }
 
         tallyNegative.setOnClickListener {
-            val currentWord = quizViewModel.currentWordpair.value
+            val currentWord = _quizViewModel.currentWordpair.value
             if (currentWord != null) {
                 currentWord.level = maxOf(0, currentWord.level - 1)
-                quizViewModel.updateLearningLevel(currentWord)
+                _quizViewModel.updateLearningLevel(currentWord)
             }
         }
 
