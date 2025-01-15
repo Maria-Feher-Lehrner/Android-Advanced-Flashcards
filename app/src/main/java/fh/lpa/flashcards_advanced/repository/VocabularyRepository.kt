@@ -57,6 +57,13 @@ class VocabularyRepository (
         _wordpairDAO.deleteAll()
     }
 
+    fun deleteSpecificWordpair(wordpairEntity: WordpairEntity){
+        Log.d("VocabularyRepository", "deleteSpecificWordPair() was called")
+        Log.d("VocabularyRepository", "Deleting wordpair: ${wordpairEntity.toString()}")
+
+        _wordpairDAO.deleteWordpair(wordpairEntity)
+    }
+
     suspend fun searchBy(searchTerm: String): List<WordpairEntity> {
         return _wordpairDAO.searchWords("%$searchTerm%")
     }

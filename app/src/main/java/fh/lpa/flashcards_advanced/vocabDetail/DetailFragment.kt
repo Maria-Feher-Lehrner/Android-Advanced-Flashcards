@@ -29,6 +29,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
         val saveButton = view.findViewById<Button>(R.id.btn_saveDetail)
         val backButton = view.findViewById<Button>(R.id.btn_backDetail)
+        val deleteButton = view.findViewById<Button>(R.id.btn_deleteDetail)
 
         etFrenchWord.setText(wordpair.frenchWord)
         etGermanWord.setText((wordpair.germanWord))
@@ -57,6 +58,13 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
             _detailViewModel.updateWordpair(wordpair)
 
+            findNavController().popBackStack()
+        }
+
+        deleteButton.setOnClickListener{
+            Log.d("DetailFragment", "Delete Button was clicked")
+
+            _detailViewModel.deleteWordpair(wordpair)
             findNavController().popBackStack()
         }
     }

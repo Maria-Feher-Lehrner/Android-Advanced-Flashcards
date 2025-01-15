@@ -32,4 +32,17 @@ class DetailViewModel(
         }
     }
 
+    fun deleteWordpair(wordpair: Wordpair) {
+        Log.d("DetailViewModel", "deleteWordpair() was called")
+        val entity = _vocabRepository.mapWordpairToEntity(wordpair)
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                _vocabRepository.deleteSpecificWordpair(entity)
+                Log.d("DetailViewModel", "Wordpair deleted successfully!")
+            } catch (e: Exception) {
+                Log.e("DetailViewModel", "Error deleting wordpair", e)
+            }
+        }
+    }
+
 }
