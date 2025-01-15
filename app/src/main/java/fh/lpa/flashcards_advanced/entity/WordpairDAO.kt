@@ -35,4 +35,10 @@ interface WordpairDAO {
             "OR germanWord LIKE :searchTerm " +
             "ORDER BY frenchWord, germanWord")
     suspend fun searchWords(searchTerm: String): List<WordpairEntity>
+
+    @Query("SELECT * FROM wordpairs " +
+            "WHERE germanWord = :germanWord " +
+            "AND frenchWord = :frenchWord " +
+            "LIMIT 1")
+    suspend fun searchByWords(germanWord: String, frenchWord: String): List<WordpairEntity>
 }

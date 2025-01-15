@@ -69,7 +69,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         }
         saveButton.setOnClickListener {
             Log.d("StartFragment", "Save button clicked!")
-            startViewModel.saveWordpair()
+            startViewModel.saveWordpair(requireContext())
             _inputGer.setText("")
             _inputFra.setText("")
         }

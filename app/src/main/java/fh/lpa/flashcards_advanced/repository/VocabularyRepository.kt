@@ -70,6 +70,15 @@ class VocabularyRepository (
 
     suspend fun addWordPair(wordPair: WordpairEntity){
         Log.d("VocabularyRepository", "addWordpair() called")
+
+        // Check if the wordpair already exists (based on German or French word)
+        val existingWordpair = _wordpairDAO.searchByWords(wordPair.germanWord, wordPair.frenchWord)
+
+        if (existingWordpair.isNotEmpty()) {
+            // Wordpair already exists, so we throw an exception or return
+            throw IllegalArgumentException("Wordpair already exists")
+        }
+
         try {
             _wordpairDAO.insertWordpair(wordPair)
         } catch (e: Exception) {
