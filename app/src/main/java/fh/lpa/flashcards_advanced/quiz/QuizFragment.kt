@@ -93,7 +93,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             val currentWord = _quizViewModel.currentWordpair.value
             if (currentWord != null) {
                 currentWord.level++
-                _quizViewModel.updateLearningLevel(currentWord)
+                _quizViewModel.updateLearningLevel(currentWord, requireContext())
             }
         }
 
@@ -101,7 +101,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             val currentWord = _quizViewModel.currentWordpair.value
             if (currentWord != null) {
                 currentWord.level = maxOf(0, currentWord.level - 1)
-                _quizViewModel.updateLearningLevel(currentWord)
+                _quizViewModel.updateLearningLevel(currentWord, requireContext())
             }
         }
 
