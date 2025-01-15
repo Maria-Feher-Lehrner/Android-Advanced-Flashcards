@@ -39,7 +39,6 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         val tallyPositive = view.findViewById<ImageButton>(R.id.btn_checkPositive)
         val tallyNegative = view.findViewById<Button>(R.id.btn_checkNegative)
         val navigateBack = view.findViewById<Button>(R.id.btn_end_quiz)
-        val share = view.findViewById<ImageButton>(R.id.imgbtn_share)
 
         // Observing the current wordPair
         _quizViewModel.currentWordpair.observe(viewLifecycleOwner) { wordpair ->

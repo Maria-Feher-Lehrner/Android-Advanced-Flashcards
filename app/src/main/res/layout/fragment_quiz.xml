@@ -83,19 +83,19 @@
             android:id="@+id/toggle_checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/yellow_button_with_ripple"
             android:backgroundTint="@color/yellow"
             android:textColor="@color/darkBlue"
-            android:layout_marginStart="80dp"
-            android:layout_marginBottom="12dp"
-            android:layout_marginEnd="80dp"
-            android:background="@drawable/rounded_button_yellow"
             android:textOff="@string/kontrollieren"
             android:textOn="@string/quizwort" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="50dp"
             android:orientation="horizontal">
 
             <ImageButton
@@ -108,7 +108,7 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="6dp"
                 android:backgroundTint="@color/green"
-                android:background="@drawable/rounded_button_green"
+                android:background="@drawable/green_button_with_ripple"
                 app:srcCompat="@android:drawable/checkbox_on_background" />
             <View
                 android:layout_width="0dp"
@@ -146,13 +146,6 @@
                 android:layout_marginEnd="80dp"
                 android:text="@string/zur_ck_zur_startseite" />
 
-            <ImageButton
-                android:id="@+id/imgbtn_share"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/darkBlue"
-                app:srcCompat="@android:drawable/ic_menu_share" />
         </LinearLayout>
 
     </LinearLayout>
