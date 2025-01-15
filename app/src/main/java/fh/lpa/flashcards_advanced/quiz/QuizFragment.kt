@@ -33,9 +33,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         //initializing TextView
         _quizWord = view.findViewById<TextView>(R.id.tv_checkWord)
         //initializing Buttons
-        _languageToggle = view.findViewById<ToggleButton>(R.id.toggleButton)
+        _languageToggle = view.findViewById<ToggleButton>(R.id.toggle_language)
         val nextQuizWord = view.findViewById<Button>(R.id.btn_quiz_next)
-        val checkAnswer = view.findViewById<Button>(R.id.btn_check)
+        val checkAnswerToggle = view.findViewById<ToggleButton>(R.id.toggle_checkAnswer)
         val tallyPositive = view.findViewById<ImageButton>(R.id.btn_checkPositive)
         val tallyNegative = view.findViewById<Button>(R.id.btn_checkNegative)
         val navigateBack = view.findViewById<Button>(R.id.btn_end_quiz)
@@ -66,19 +66,26 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             _quizViewModel.requestRandomWord()
         }
 
-        checkAnswer.setOnClickListener {
-            val currentWordpair = _quizViewModel.currentWordpair.value
-            // Display the correct word based on toggle state
-            if (currentWordpair != null) {
-                // Display the opposite word based on the toggle state
-                val wordToDisplay = if (_languageToggle.isChecked) {
-                    currentWordpair.frenchWord
+        checkAnswerToggle.setOnCheckedChangeListener { _, isChecked ->
+            val currentWord = _quizViewModel.currentWordpair.value
+            if (currentWord != null) {
+                if (isChecked) {
+                    // Show the opposite word
+                    val oppositeWord = if (_languageToggle.isChecked) {
+                        currentWord.frenchWord
+                    } else {
+                        currentWord.germanWord
+                    }
+                    _quizWord.text = oppositeWord
                 } else {
-                    currentWordpair.germanWord
+                    // Restore the original word
+                    val originalWord = if (_languageToggle.isChecked) {
+                        currentWord.germanWord
+                    } else {
+                        currentWord.frenchWord
+                    }
+                    _quizWord.text = originalWord
                 }
-                _quizWord.text = wordToDisplay
-            } else {
-                _quizWord.text = getString(R.string.no_words_available)
             }
         }
 

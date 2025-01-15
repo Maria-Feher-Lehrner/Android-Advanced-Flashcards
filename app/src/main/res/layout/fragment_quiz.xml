@@ -47,7 +47,7 @@
             android:layout_height="wrap_content" />
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/toggle_language"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -79,8 +79,8 @@
             android:textAlignment="center"
             android:textSize="34sp" />
 
-        <Button
-            android:id="@+id/btn_check"
+        <ToggleButton
+            android:id="@+id/toggle_checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/yellow"
@@ -88,7 +88,9 @@
             android:layout_marginStart="80dp"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="80dp"
-            android:text="@string/kontrollieren" />
+            android:background="@drawable/rounded_button_yellow"
+            android:textOff="@string/kontrollieren"
+            android:textOn="@string/quizwort" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,7 +108,7 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="6dp"
                 android:backgroundTint="@color/green"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/rounded_button_green"
                 app:srcCompat="@android:drawable/checkbox_on_background" />
             <View
                 android:layout_width="0dp"
