@@ -34,9 +34,6 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         etGermanWord.setText((wordpair.germanWord))
         etLearningLevel.setText(wordpair.level.toString())
 
-        etFrenchWord.doAfterTextChanged { newTerm ->
-        }
-
         //Button functions
         backButton.setOnClickListener {
             findNavController().popBackStack()
