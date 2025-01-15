@@ -7,6 +7,7 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.core.module.dsl.viewModelOf
 import fh.lpa.flashcards_advanced.vocabDetail.DetailViewModel
 import fh.lpa.flashcards_advanced.entity.WordpairsAppDatabase
+import fh.lpa.flashcards_advanced.quiz.QuizViewModel
 import fh.lpa.flashcards_advanced.vocabList.ListViewModel
 import fh.lpa.flashcards_advanced.repository.VocabularyRepository
 import fh.lpa.flashcards_advanced.start.StartViewModel
@@ -15,6 +16,7 @@ val appModule = module {
 
     viewModelOf(::DetailViewModel)
     viewModelOf(::ListViewModel)
+    viewModel { QuizViewModel(get()) }
     viewModel { StartViewModel(get()) }
 
 

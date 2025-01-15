@@ -33,4 +33,5 @@
     <string name="zurueck">Zurück</string>
     <string name="fr_de"><![CDATA[FR>DE]]></string>
     <string name="de_fr"><![CDATA[DE>FR]]></string>
+    <string name="no_words_available">Kein Vokabel zur Anzeige hinterlegt.</string>
 </resources>
