@@ -74,7 +74,7 @@ class QuizViewModel(private val _vocabRepository: VocabularyRepository) : ViewMo
 
     private fun showScoreNotification(context: Context, word: Wordpair) {
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setContentTitle("Congratulations!")
+            .setContentTitle("Gratulation!")
             .setContentText("Du hast ein Lernlevel von 3 mit '${word.germanWord} - ${word.frenchWord}' erreicht!")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
